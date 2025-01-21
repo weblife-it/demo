@@ -15,6 +15,49 @@ import com.example.demo.model.Movie;
 public class MovieRepositoryImpl implements MovieRepository {
 
 	@Override
+	public Movie getById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public Movie getOne(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public <S extends Movie> List<S> findAll(Example<S> example) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <S extends Movie> List<S> findAll(Example<S> example, Sort sort) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public List<Movie> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Movie> findAllById(Iterable<Long> ids) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public List<Movie> findAll(Sort sort) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	@Override
 	public void flush() {
 		// TODO Auto-generated method stub
 
@@ -51,49 +94,13 @@ public class MovieRepositoryImpl implements MovieRepository {
 	}
 
 	@Override
-	public Movie getOne(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Movie getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Movie getReferenceById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Movie> List<S> findAll(Example<S> example) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends Movie> List<S> findAll(Example<S> example, Sort sort) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public <S extends Movie> List<S> saveAll(Iterable<S> entities) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Movie> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Movie> findAllById(Iterable<Long> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -150,12 +157,6 @@ public class MovieRepositoryImpl implements MovieRepository {
 	public void deleteAll() {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public List<Movie> findAll(Sort sort) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
