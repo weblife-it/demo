@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 
 
 @Entity
-@Table(name = "movie") // Nome della tabella nel database
+@Table(name = "movie") // tabella nel database demo
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +18,7 @@ public class Movie {
     private String movie;
     private Date dataInizio;
     private Date dataFine;
-    
-    // Costruttori, getter e setter
-    
+       
 	public Long getId() {
 		return id;
 	}
