@@ -19,6 +19,7 @@ public class Film {
     private String titolo;
     //@Temporal(TemporalType.DATE)
     private Date data;
+    private Integer sala;
     
 	public Long getId() {
 		return id;
@@ -37,6 +38,12 @@ public class Film {
 	}
 	public void setData(Date data) {
 		this.data = data;
+	}
+	public Integer getSala() {
+		return sala;
+	}
+	public void setSala(Integer sala) {
+		this.sala = sala;
 	}
        
 	

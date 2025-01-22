@@ -13,6 +13,7 @@ import com.demo.model.Film;
 import com.demo.service.FilmService;
 
 import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,8 +33,35 @@ public class FilmController {
         return service.getStorico();
     }
     
+    @GetMapping("/programmazione")
+    public List<Film> getProgrammazione() {
+        return getProgrammazione(null, null);
+    }
+    
     @GetMapping("/programmazione/{dataInizio}/{dataFine}")
     public List<Film> getProgrammazione(@PathVariable Date dataInizio, @PathVariable Date dataFine) {
+        	
+    	if(dataInizio==null){
+            Calendar cal = Calendar.getInstance();
+            cal.setFirstDayOfWeek(Calendar.MONDAY);
+            cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
+            dataInizio=new Date(cal.getTimeInMillis());
+            System.out.println("Inizio: "+dataInizio);
+    	}
+    	
+    	if(dataFine==null) {
+            Calendar cal = Calendar.getInstance();
+            cal.setFirstDayOfWeek(Calendar.MONDAY);
+            int giorniFinoDomenica = Calendar.SUNDAY - cal.get(Calendar.DAY_OF_WEEK);
+            if (giorniFinoDomenica <= 0) {
+                giorniFinoDomenica += 7;
+            }
+            cal.add(Calendar.DAY_OF_WEEK, giorniFinoDomenica);
+            
+    		dataFine=new Date(cal.getTimeInMillis());
+    		System.out.println("Fine: "+dataFine);
+    	}
+    	
         return service.getProgrammazione(dataInizio, dataFine);
     }
     
