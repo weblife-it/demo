@@ -1,25 +1,20 @@
-package com.example.demo.service;
+package com.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.model.Movie;
-import com.example.demo.repository.MovieRepository;
+import com.demo.model.Movie;
+import com.demo.repository.MovieRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class MovieService {
-    
+	@Autowired
 	private MovieRepository movieRepository;
     
-	//@Autowired
-    public MovieService(MovieRepository movieRepository) {
-        this.movieRepository = movieRepository;
-    }
-
     public List<Movie> getAllMovies() {
     	
         return movieRepository.findAll();

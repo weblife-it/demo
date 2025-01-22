@@ -1,37 +1,37 @@
-package com.example.demo.controller;
+package com.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
+//import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Movie;
-import com.example.demo.service.MovieService;
+import com.demo.model.Movie;
+import com.demo.service.MovieService;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/movies")
+@RequestMapping("/demo")
 public class MovieController {
-       
+	@Autowired   
     private MovieService movieService;
-
-    //@Autowired 
-    public MovieController(MovieService movieService) {
-        this.movieService = movieService;
-    } 
-        
+     
     @GetMapping
+    public String getCinema() {
+        return "Cinema “CineMille”";
+    }
+    
+    @GetMapping("/movies")
     public List<Movie> getAllMovies() {
         return movieService.getAllMovies();
     }
     
-    @GetMapping("/{id}")
+    @GetMapping("/movies/{id}")
     public ResponseEntity<Movie> findMovieById(@PathVariable long id) {
         Optional<Movie> movie = movieService.getMovieById(id);
 
