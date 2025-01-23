@@ -15,7 +15,7 @@ import com.demo.programmazione.model.Programmazione;
 public interface ProgrammazioneRepository extends JpaRepository<Programmazione, Long> {
 	
 	
-	@Query("SELECT p FROM Programmazione p WHERE p.data BETWEEN :dataInizio AND :dataFine")
-    List<Programmazione> findFilmByDateBetween(@Param("dataInizio") Date dataInizio, @Param("dataFine") Date dataFine);
-		
+	@Query("SELECT p FROM Programmazione p JOIN FETCH p.film WHERE p.data BETWEEN :dataInizio AND :dataFine")
+    List<Programmazione> findProgrammazioneByDateBetween(@Param("dataInizio") Date dataInizio, @Param("dataFine") Date dataFine);
+	
 }

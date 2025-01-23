@@ -26,12 +26,7 @@ public class ProgrammazioneController {
     public String getDescrizione() {
         return "Cinema “CineMille: gestione della programmazione dei film”";
     }
-    
-    @GetMapping("/storico")
-    public List<Programmazione> getStorico() {
-        return service.getStorico();
-    }
-    
+        
     @GetMapping("/programmazione")
     public List<Programmazione> getProgrammazione() {
         return getProgrammazione(null, null);
@@ -45,7 +40,7 @@ public class ProgrammazioneController {
     
     @GetMapping("/programmazione/{id}")
     public ResponseEntity<Programmazione> getProgrammazioneById(@PathVariable long id) {
-        Optional<Programmazione> film = service.getFilmById(id);
+        Optional<Programmazione> film = service.getProgrammazioneById(id);
 
         if(film.isPresent()) {
             return ResponseEntity.ok().body(film.get());
@@ -54,10 +49,27 @@ public class ProgrammazioneController {
         }
         /*  return service.getFilmById(id)
             .map(film -> ResponseEntity.ok(film))
-            .orElse(ResponseEntity.notFound().build()); */
-        
+            .orElse(ResponseEntity.notFound().build()); */        
     }
+    
+    @GetMapping("/storico")
+    public List<Programmazione> getStorico() {
+        return service.getStorico();
+    }
+    
+   
 
+    /*    
+    @GetMapping("/programmazione")
+    public List<Programmazione> getProgrammazioni(@RequestParam(value = "filmId", required = false) Long filmId) {
+        if (filmId != null) {
+            return programmazioneRepository.findAllByFilmId(filmId);
+        } else {
+            return programmazioneRepository.findAll();
+        }
+    }
+*/    
+    
 /*    
     @PostMapping
     public Movie saveMovie(@Validated @RequestBody Movie movie) {

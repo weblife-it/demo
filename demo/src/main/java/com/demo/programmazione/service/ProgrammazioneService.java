@@ -43,10 +43,10 @@ public class ProgrammazioneService {
     		System.out.println("Fine: "+dataFine);
     	}
     	
-        return repository.findFilmByDateBetween(dataInizio, dataFine);
+        return repository.findProgrammazioneByDateBetween(dataInizio, dataFine);
     } 
         
-    public Optional<Programmazione> getFilmById(Long id) {
+    public Optional<Programmazione> getProgrammazioneById(Long id) {
         return repository.findById(id);
     }
     
