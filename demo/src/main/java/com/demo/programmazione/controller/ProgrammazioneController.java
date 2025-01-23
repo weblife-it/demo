@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 //import org.springframework.validation.annotation.Validated;
 //import org.springframework.web.bind.annotation.PostMapping;
 
+import com.demo.programmazione.ProgrammazioneApplication;
 import com.demo.programmazione.model.Programmazione;
 import com.demo.programmazione.service.ProgrammazioneService;
 
@@ -24,7 +25,7 @@ public class ProgrammazioneController {
      
     @GetMapping
     public String getDescrizione() {
-        return "Cinema “CineMille: gestione della programmazione dei film”";
+        return ProgrammazioneApplication.INFO;
     }
         
     @GetMapping("/programmazione")

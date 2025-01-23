@@ -10,6 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories //(basePackages = "com.demo.repository")
 @EntityScan //(basePackages = "com.demo.model")
 public class ProgrammazioneApplication {
+	
+	public static final String INFO = "Cinema CineMille: gestione della programmazione dei film";
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProgrammazioneApplication.class, args);
