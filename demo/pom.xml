@@ -67,6 +67,13 @@
 		    <groupId>org.mariadb.jdbc</groupId>
 		    <artifactId>mariadb-java-client</artifactId>
 		</dependency>
+			    
+	    <!-- SpringDoc OpenAPI -->
+	    <dependency>
+	        <groupId>org.springdoc</groupId>
+	        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+	        <version>2.3.0</version> <!-- Verifica la versione più recente su Maven Central -->
+	    </dependency>	    
 
 	</dependencies>
 
