@@ -1,4 +1,4 @@
-package com.demo.model;
+package com.demo.programmazione.model;
 
 import java.sql.Date;
 
@@ -10,8 +10,8 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "film") // tabella nel database demo
-public class Film {
+@Table(name = "programmazione") // tabella nel database demo
+public class Programmazione {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

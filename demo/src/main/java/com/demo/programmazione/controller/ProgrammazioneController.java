@@ -1,4 +1,4 @@
-package com.demo.controller;
+package com.demo.programmazione.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,19 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 //import org.springframework.validation.annotation.Validated;
 //import org.springframework.web.bind.annotation.PostMapping;
 
-import com.demo.model.Film;
-import com.demo.service.FilmService;
+import com.demo.programmazione.model.Programmazione;
+import com.demo.programmazione.service.ProgrammazioneService;
 
 import java.sql.Date;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/demo")
-public class FilmController {
+public class ProgrammazioneController {
 	@Autowired   
-    private FilmService service;
+    private ProgrammazioneService service;
      
     @GetMapping
     public String getDescrizione() {
@@ -29,24 +28,24 @@ public class FilmController {
     }
     
     @GetMapping("/storico")
-    public List<Film> getStorico() {
+    public List<Programmazione> getStorico() {
         return service.getStorico();
     }
     
     @GetMapping("/programmazione")
-    public List<Film> getProgrammazione() {
+    public List<Programmazione> getProgrammazione() {
         return getProgrammazione(null, null);
     }
     
     @GetMapping("/programmazione/{dataInizio}/{dataFine}")
-    public List<Film> getProgrammazione(@PathVariable Date dataInizio, @PathVariable Date dataFine) {
+    public List<Programmazione> getProgrammazione(@PathVariable Date dataInizio, @PathVariable Date dataFine) {
             	
         return service.getProgrammazione(dataInizio, dataFine);
     }
     
-    @GetMapping("/film/{id}")
-    public ResponseEntity<Film> findFilmById(@PathVariable long id) {
-        Optional<Film> film = service.getFilmById(id);
+    @GetMapping("/programmazione/{id}")
+    public ResponseEntity<Programmazione> getProgrammazioneById(@PathVariable long id) {
+        Optional<Programmazione> film = service.getFilmById(id);
 
         if(film.isPresent()) {
             return ResponseEntity.ok().body(film.get());

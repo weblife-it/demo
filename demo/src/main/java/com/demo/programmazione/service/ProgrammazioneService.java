@@ -1,4 +1,4 @@
-package com.demo.service;
+package com.demo.programmazione.service;
 
 import java.sql.Date;
 import java.util.Calendar;
@@ -8,19 +8,19 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.demo.model.Film;
-import com.demo.repository.FilmRepository;
+import com.demo.programmazione.model.Programmazione;
+import com.demo.programmazione.repository.ProgrammazioneRepository;
 
 @Service
-public class FilmService {
+public class ProgrammazioneService {
 	@Autowired
-	private FilmRepository repository;
+	private ProgrammazioneRepository repository;
     
-    public List<Film> getStorico() {    	
+    public List<Programmazione> getStorico() {    	
         return repository.findAll();
     }
     
-    public List<Film> getProgrammazione(Date dataInizio, Date dataFine) {
+    public List<Programmazione> getProgrammazione(Date dataInizio, Date dataFine) {
     	
     	if(dataInizio==null){
             Calendar cal = Calendar.getInstance();
@@ -46,7 +46,7 @@ public class FilmService {
         return repository.findFilmByDateBetween(dataInizio, dataFine);
     } 
         
-    public Optional<Film> getFilmById(Long id) {
+    public Optional<Programmazione> getFilmById(Long id) {
         return repository.findById(id);
     }
     
