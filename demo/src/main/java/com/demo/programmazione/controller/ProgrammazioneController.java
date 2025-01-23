@@ -37,8 +37,13 @@ public class ProgrammazioneController {
             	
         return service.getProgrammazione(dataInizio, dataFine);
     }
+
+    @GetMapping("/storico")
+    public List<Programmazione> getStorico() {
+        return service.getStorico();
+    }
     
-    @GetMapping("/programmazione/{id}")
+    @GetMapping("/storico/{id}")
     public ResponseEntity<Programmazione> getProgrammazioneById(@PathVariable long id) {
         Optional<Programmazione> film = service.getProgrammazioneById(id);
 
@@ -51,24 +56,7 @@ public class ProgrammazioneController {
             .map(film -> ResponseEntity.ok(film))
             .orElse(ResponseEntity.notFound().build()); */        
     }
-    
-    @GetMapping("/storico")
-    public List<Programmazione> getStorico() {
-        return service.getStorico();
-    }
-    
-   
 
-    /*    
-    @GetMapping("/programmazione")
-    public List<Programmazione> getProgrammazioni(@RequestParam(value = "filmId", required = false) Long filmId) {
-        if (filmId != null) {
-            return programmazioneRepository.findAllByFilmId(filmId);
-        } else {
-            return programmazioneRepository.findAll();
-        }
-    }
-*/    
     
 /*    
     @PostMapping
