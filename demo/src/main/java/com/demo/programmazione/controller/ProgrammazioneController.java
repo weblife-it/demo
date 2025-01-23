@@ -30,7 +30,7 @@ public class ProgrammazioneController {
         
     @GetMapping("/programmazione")
     public List<Programmazione> getProgrammazione() {
-        return getProgrammazione(null, null);
+        return service.getProgrammazione(null, null);
     }
     
     @GetMapping("/programmazione/{dataInizio}/{dataFine}")
